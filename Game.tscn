@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Individual Sprite/Warrior_SheetnoEffect.png" type="Texture" id=2]
@@ -21,6 +21,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=7]
 resource_name = "dash"
+length = 0.9
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -37,7 +38,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=4]
 resource_name = "idle"
-length = 0.7
+length = 0.9
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -88,7 +89,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=6]
 resource_name = "run"
-length = 0.8
+length = 0.9
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -120,49 +121,34 @@ animation = "run"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=23]
 switch_mode = 2
+auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=24]
-switch_mode = 2
-auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=25]
-switch_mode = 2
-auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=26]
-switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=27]
-switch_mode = 2
-auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=28]
-switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=29]
-switch_mode = 2
-auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=30]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=31]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=32]
-switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id=18]
 states/dash/node = SubResource( 19 )
-states/dash/position = Vector2( 444, 180 )
+states/dash/position = Vector2( 328, 138 )
 states/idle/node = SubResource( 20 )
-states/idle/position = Vector2( 398, 64 )
+states/idle/position = Vector2( 811, 119 )
 states/jump/node = SubResource( 21 )
-states/jump/position = Vector2( 611, 174 )
+states/jump/position = Vector2( 719, 210 )
 states/run/node = SubResource( 22 )
-states/run/position = Vector2( 592, 56 )
-transitions = [ "idle", "dash", SubResource( 23 ), "dash", "idle", SubResource( 24 ), "idle", "run", SubResource( 25 ), "run", "idle", SubResource( 26 ), "run", "jump", SubResource( 27 ), "jump", "run", SubResource( 28 ), "jump", "dash", SubResource( 29 ), "dash", "jump", SubResource( 30 ), "jump", "idle", SubResource( 31 ), "idle", "jump", SubResource( 32 ) ]
+states/run/position = Vector2( 479, 34 )
+transitions = [ "dash", "idle", SubResource( 23 ), "idle", "dash", SubResource( 24 ), "idle", "run", SubResource( 25 ), "run", "idle", SubResource( 26 ), "idle", "jump", SubResource( 27 ), "jump", "idle", SubResource( 28 ), "run", "dash", SubResource( 29 ), "dash", "run", SubResource( 30 ) ]
 start_node = "idle"
+graph_offset = Vector2( 138.153, 23.4189 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=17]
 
@@ -208,7 +194,6 @@ current = true
 [node name="AnimationTree" type="AnimationTree" parent="Player"]
 tree_root = SubResource( 18 )
 anim_player = NodePath("../AnimationPlayer")
-active = true
 parameters/playback = SubResource( 17 )
 
 [node name="platform" type="Node2D" parent="."]

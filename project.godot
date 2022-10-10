@@ -8,6 +8,28 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node",
+"class": "BaseState",
+"language": "GDScript",
+"path": "res://player/states/base_state.gd"
+}, {
+"base": "BaseState",
+"class": "MoveState",
+"language": "GDScript",
+"path": "res://player/states/move.gd"
+}, {
+"base": "Reference",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Player.gd"
+} ]
+_global_script_class_icons={
+"BaseState": "",
+"MoveState": "",
+"Player": ""
+}
+
 [application]
 
 config/name="2DHackAndSlash"
